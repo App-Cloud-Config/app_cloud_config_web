@@ -144,7 +144,8 @@ class ThemeGroup {
   }
 
   // Manually parse JSON to create a ThemeGroup instance with the prefix
-  factory ThemeGroup.fromJson(Map<String, dynamic> json, {required String prefix}) {
+  factory ThemeGroup.fromJson(Map<String, dynamic> json,
+      {required String prefix}) {
     return ThemeGroup(
       // Light theme properties
       light_primary: json['${prefix}primary'] as String?,

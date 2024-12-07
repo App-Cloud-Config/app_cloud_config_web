@@ -1,7 +1,6 @@
 import 'package:app_cloud_config_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -42,7 +41,7 @@ class AuthMiddleware extends GetMiddleware {
   RouteSettings redirect(String? route) {
     String? token = sharedPreferences.getString('token');
     // Token found, navigate to Theme Editor
-    if(token == null) {
+    if (token == null) {
       return const RouteSettings(name: Routes.UPLOAD_CREDENTIALS);
     }
     return const RouteSettings(name: Routes.THEME_EDITOR);

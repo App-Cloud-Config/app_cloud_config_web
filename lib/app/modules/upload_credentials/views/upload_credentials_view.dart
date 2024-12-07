@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:app_cloud_config_web/app/core/components/primary_button%20copy.dart';
 import 'package:app_cloud_config_web/app/routes/app_pages.dart';
 import 'package:app_cloud_config_web/dependency_injection.dart';
+import 'package:app_cloud_config_web/main.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,12 +37,10 @@ class UploadCredentialsView extends StatelessWidget {
         if (response.statusCode == 200) {
           final token = response.data['token'];
 
-          // Save token in SharedPreferences
-          SharedPreferences prefs = await SharedPreferences.getInstance();
-          await prefs.setString('token', token);
+          await sharedPreferences.setString('token', token);
 
           // Navigate to ThemeEditorView
-          Get.offAllNamed(Routes.THEME_EDITOR);
+          Get.offAllNamed(Routes.DASHBOARD);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Error: ${response.data}')),

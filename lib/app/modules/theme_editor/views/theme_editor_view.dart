@@ -9,6 +9,7 @@ class ThemeEditorView extends GetView<ThemeEditorController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
+      autoRemove: false,
       init: ThemeEditorController(),
       builder: (controller) {
         return DefaultTabController(
@@ -59,7 +60,30 @@ class ThemeEditorView extends GetView<ThemeEditorController> {
                       child: ListView(
                         children: List.generate(
                           10,
-                          (index) => const ListTile(),
+                          (index) => ListTile(
+                            tileColor: Colors.grey.shade100,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 10,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            leading: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: const BoxDecoration(
+                                color: Colors.grey,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            title: const Text(
+                              'TESTING DUMMY DATA FOR LOADING',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            trailing:
+                                const Icon(Icons.edit, color: Colors.grey),
+                          ),
                         ),
                       ),
                     )),

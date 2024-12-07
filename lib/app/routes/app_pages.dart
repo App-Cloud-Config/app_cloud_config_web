@@ -1,7 +1,12 @@
-import 'package:app_cloud_config_web/main.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
+import '../../main.dart';
+import '../modules/cloud_widgets/bindings/cloud_widgets_binding.dart';
+import '../modules/cloud_widgets/views/cloud_widgets_view.dart';
+import '../modules/dashboard/bindings/dashboard_binding.dart';
+import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/theme_editor/bindings/theme_editor_binding.dart';
@@ -33,6 +38,16 @@ class AppPages {
       page: () => const UploadCredentialsView(),
       binding: UploadCredentialsBinding(),
     ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => const DashboardView(),
+      binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.CLOUD_WIDGETS,
+      page: () => const CloudWidgetsView(),
+      binding: CloudWidgetsBinding(),
+    ),
   ];
 }
 
@@ -44,6 +59,6 @@ class AuthMiddleware extends GetMiddleware {
     if (token == null) {
       return const RouteSettings(name: Routes.UPLOAD_CREDENTIALS);
     }
-    return const RouteSettings(name: Routes.THEME_EDITOR);
+    return const RouteSettings(name: Routes.DASHBOARD);
   }
 }

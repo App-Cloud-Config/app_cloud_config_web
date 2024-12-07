@@ -6,6 +6,8 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const THEME_EDITOR = _Paths.THEME_EDITOR;
   static const UPLOAD_CREDENTIALS = _Paths.UPLOAD_CREDENTIALS;
+  static const DASHBOARD = _Paths.DASHBOARD;
+  static const CLOUD_WIDGETS = _Paths.CLOUD_WIDGETS;
 }
 
 abstract class _Paths {
@@ -13,4 +15,6 @@ abstract class _Paths {
   static const HOME = '/home';
   static const THEME_EDITOR = '/theme-editor';
   static const UPLOAD_CREDENTIALS = '/upload-credentials';
+  static const DASHBOARD = '/dashboard';
+  static const CLOUD_WIDGETS = '/cloud-widgets';
 }

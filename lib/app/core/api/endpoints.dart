@@ -4,4 +4,5 @@ class Endpoints {
   static const String createToken = "/createToken";
   static const String setData = "/setData";
   static const String getData = "/getAllData";
+  static const String getAllWidgets = "/getAllWidgets";
 }

@@ -52,6 +52,9 @@ class WidgetListController extends GetxController with StateMixin {
 
           // Check if 'widgets' is a Map
           if (widgetsMap is Map<String, dynamic>) {
+            if (widgets.isEmpty) {
+              change(null, status: RxStatus.empty());
+            }
             // Now map through the 'widgets' Map and process the widget data
             widgets = widgetsMap.entries.map((entry) {
               // Here entry.value is the widget data, which is a Map
@@ -61,25 +64,22 @@ class WidgetListController extends GetxController with StateMixin {
             update(); // Update the UI with the widget list
             change(null, status: RxStatus.success());
           } else {
-            change(null,
-                status: RxStatus.error("The 'widgets' field is not a Map."));
-
-            throw Exception("The 'widgets' field is not a Map.");
+            change(null, status: RxStatus.empty());
           }
         } else {
           change(null, status: RxStatus.empty());
 
-          throw Exception("The 'widgets' field is missing or invalid.");
+          // throw Exception("The 'widgets' field is missing or invalid.");
         }
       } else {
-        change(null,
-            status: RxStatus.error("Error fetching widgets: ${response.data}"));
+        change(null, status: RxStatus.empty());
 
-        throw Exception("Error fetching widgets: ${response.data}");
+        // throw Exception("Error fetching widgets: ${response.data}");
       }
     } catch (e) {
       log('Error: $e');
       // Handle error here
+      change(null, status: RxStatus.empty());
     }
   }
 }

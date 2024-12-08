@@ -20,7 +20,11 @@ class WidgetListView extends GetView<WidgetListController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 controller.obx(
-                  onEmpty: const Center(child: Text('No widgets available')),
+                  onEmpty: const Center(
+                      child: Text(
+                    'No widgets available',
+                    style: TextStyle(color: Colors.black),
+                  )),
                   onError: (e) => Center(
                     child: Text(e.toString()),
                   ),

@@ -3,7 +3,7 @@ import 'package:app_cloud_config_web/app/modules/theme_editor/views/theme_editor
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
-  RxInt index = 1.obs;
+  RxInt index = 0.obs;
 
   var pages = [
     const ThemeEditorView(),
